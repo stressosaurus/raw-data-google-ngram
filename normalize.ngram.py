@@ -4,7 +4,6 @@
 
 ### Computes 
 ### 1. the rscore matrix - raw scores,
-### 2. the kscore matrix - ranks,
 ### 3. the pscore matrix - probability scores,
 ### 4. the zscore matrix - normalized score
 ### of the filtered google ngram data.
