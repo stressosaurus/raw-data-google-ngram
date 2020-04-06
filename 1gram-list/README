@@ -1,0 +1,8 @@
+Stopwords lists
+
+This folder contains list of stopwords for eight languages.
+Stopwords are words with high occurences in a text.
+
+Stopwords list were obtained from these websites:
+http://anoncvs.postgresql.org/cvsweb.cgi/pgsql/src/backend/snowball/stopwords/
+https://www.ranks.nl/stopwords
