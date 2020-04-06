@@ -4,8 +4,8 @@
 
 ### Computes 
 ### 1. the rscore matrix - raw scores,
-### 3. the pscore matrix - probability scores,
-### 4. the zscore matrix - normalized score
+### 2. the pscore matrix - probability scores,
+### 3. the zscore matrix - normalized score
 ### of the filtered google ngram data.
 ## Alex John Quijano
 ## Created: 3/17/2018
