@@ -130,36 +130,6 @@ def generate_rscore(l,ignore_case,restriction,annotation,gram_specific=[]):
 	
 	return rscore_matrix, pos_vector
 
-def rank(n_counts):
-
-	# Ngram counts
-	n_counts = np.array(n_counts)
-
-	# Sort and compute unique ranks
-	n_counts_sorted_index = np.argsort(-1*n_counts)
-	n_counts_sorted = n_counts[n_counts_sorted_index]
-	
-	# ranks
-	u, c = np.unique(n_counts_sorted,return_counts=True)
-	k_unique = np.array(list(reversed(np.linspace(1,u.shape[0],u.shape[0],dtype=int))))
-	k = np.array([0]*n_counts.shape[0])
-	for i, j in enumerate(u):
-		w_index = np.array(np.where(n_counts == j)[0])
-		k[w_index] = np.repeat(k_unique[i],w_index.shape[0])
-	
-	return k
-
-def generate_kscore(rscore_matrix):
-	
-	kscore_matrix = []
-	for t in rscore_matrix.T.keys():
-			r = rscore_matrix.T[t]
-			k = rank(r)
-			kscore_matrix.append(k)
-	kscore_matrix = pd.DataFrame(np.matrix(kscore_matrix),index=rscore_matrix.index,columns=rscore_matrix.columns)
-	
-	return kscore_matrix
-
 # generate pscore matrix
 def generate_pscore(rscore_matrix):
 	
@@ -204,7 +174,6 @@ def generate_matrices(language):
 		rscore, pos_annotation = generate_rscore(language,ignore_case,restriction,annotation,gram_specific=gram_specific)
 		specific_fileName = '-'+specific_fileName
 	
-	kscore = generate_kscore(rscore)
 	pscore = generate_pscore(rscore)
 	try:
 		zscore = generate_zscore(pscore)
@@ -218,7 +187,6 @@ def generate_matrices(language):
 		pass
 	
 	rscore.to_pickle(directory_1+'googlebooks-'+language+'-all-'+n+'gram-20120701.filtered.'+'I'+str(ignore_case)+'R'+str(restriction)+'A'+str(annotation)+'.'+specific_fileName+'.rscore.pkl',compression='gzip')
-	kscore.to_pickle(directory_1+'googlebooks-'+language+'-all-'+n+'gram-20120701.filtered.'+'I'+str(ignore_case)+'R'+str(restriction)+'A'+str(annotation)+'.'+specific_fileName+'.kscore.pkl',compression='gzip')
 	pscore.to_pickle(directory_1+'googlebooks-'+language+'-all-'+n+'gram-20120701.filtered.'+'I'+str(ignore_case)+'R'+str(restriction)+'A'+str(annotation)+'.'+specific_fileName+'.pscore.pkl',compression='gzip')
 	try:
 		zscore.to_pickle(directory_1+'googlebooks-'+language+'-all-'+n+'gram-20120701.filtered.'+'I'+str(ignore_case)+'R'+str(restriction)+'A'+str(annotation)+'.'+specific_fileName+'.zscore.pkl',compression='gzip')

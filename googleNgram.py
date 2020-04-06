@@ -19,7 +19,6 @@ def read(n,l,ignore_case=True,restriction=True,annotation=False,specific_fileNam
 		directory_A = '/google-ngram/'+n+'gram-normalized/'+l+'/'
 		directory_0 = os.path.abspath(os.path.join(os.getcwd(), os.pardir))+directory_A
 		rscore = pd.read_pickle(directory_0+'googlebooks-'+l+'-all-'+n+'gram-20120701.filtered.'+'I'+str(ignore_case)+'R'+str(restriction)+'A'+str(annotation)+'.'+specific_fileName+'.rscore.pkl',compression='gzip')
-		kscore = pd.read_pickle(directory_0+'googlebooks-'+l+'-all-'+n+'gram-20120701.filtered.'+'I'+str(ignore_case)+'R'+str(restriction)+'A'+str(annotation)+'.'+specific_fileName+'.kscore.pkl',compression='gzip')
 		pscore = pd.read_pickle(directory_0+'googlebooks-'+l+'-all-'+n+'gram-20120701.filtered.'+'I'+str(ignore_case)+'R'+str(restriction)+'A'+str(annotation)+'.'+specific_fileName+'.pscore.pkl',compression='gzip')
 		try:
 			zscore = pd.read_pickle(directory_0+'googlebooks-'+l+'-all-'+n+'gram-20120701.filtered.'+'I'+str(ignore_case)+'R'+str(restriction)+'A'+str(annotation)+'.'+specific_fileName+'.zscore.pkl',compression='gzip')
@@ -27,7 +26,7 @@ def read(n,l,ignore_case=True,restriction=True,annotation=False,specific_fileNam
 			zscore = None
 		pos_annotation = np.load(directory_0+'googlebooks-'+l+'-all-'+n+'gram-20120701.filtered.'+'I'+str(ignore_case)+'R'+str(restriction)+'A'+str(annotation)+'.'+specific_fileName+'.pos.npy',allow_pickle=True).item()
 		
-		return {'rscore':rscore,'kscore':kscore,'pscore':pscore,'zscore':zscore,'pos':pos_annotation}
+		return {'rscore':rscore,'pscore':pscore,'zscore':zscore,'pos':pos_annotation}
 
 	except FileNotFoundError:
 		try:
@@ -35,7 +34,6 @@ def read(n,l,ignore_case=True,restriction=True,annotation=False,specific_fileNam
 			directory_A = '/raw-data/google-ngram/'+n+'gram-normalized/'+l+'/'
 			directory_0 = os.path.abspath(os.path.join(os.getcwd(), os.pardir))+directory_A
 			rscore = pd.read_pickle(directory_0+'googlebooks-'+l+'-all-'+n+'gram-20120701.filtered.'+'I'+str(ignore_case)+'R'+str(restriction)+'A'+str(annotation)+'.'+specific_fileName+'.rscore.pkl',compression='gzip')
-			kscore = pd.read_pickle(directory_0+'googlebooks-'+l+'-all-'+n+'gram-20120701.filtered.'+'I'+str(ignore_case)+'R'+str(restriction)+'A'+str(annotation)+'.'+specific_fileName+'.kscore.pkl',compression='gzip')
 			pscore = pd.read_pickle(directory_0+'googlebooks-'+l+'-all-'+n+'gram-20120701.filtered.'+'I'+str(ignore_case)+'R'+str(restriction)+'A'+str(annotation)+'.'+specific_fileName+'.pscore.pkl',compression='gzip')
 			try:
 				zscore = pd.read_pickle(directory_0+'googlebooks-'+l+'-all-'+n+'gram-20120701.filtered.'+'I'+str(ignore_case)+'R'+str(restriction)+'A'+str(annotation)+'.'+specific_fileName+'.zscore.pkl',compression='gzip')
@@ -43,7 +41,7 @@ def read(n,l,ignore_case=True,restriction=True,annotation=False,specific_fileNam
 				zscore = None
 			pos_annotation = np.load(directory_0+'googlebooks-'+l+'-all-'+n+'gram-20120701.filtered.'+'I'+str(ignore_case)+'R'+str(restriction)+'A'+str(annotation)+'.'+specific_fileName+'.pos.npy',allow_pickle=True),item()
 			
-			return {'rscore':rscore,'kscore':kscore,'pscore':pscore,'zscore':zscore,'pos':pos_annotation}
+			return {'rscore':rscore,'pscore':pscore,'zscore':zscore,'pos':pos_annotation}
 	
 		except FileNotFoundError:
 			print('Error: The computed-data directory can not be found of '+n+'gram dataset for '+l+' with specified parameters does not exist anywhere.')

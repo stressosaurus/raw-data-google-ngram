@@ -13311,7 +13311,6 @@ D = gn.read(n,l,ignore_case=True,restriction=True,annotation=False)</code></pre>
 <p>The output is a dictionary data structure with 'rscore', 'kscore', 'pscore', 'zscore', and 'pos' as keys. Each key contained DataFrames where rows are the ngrams and the columns are the years.</p>
 <ol>
 <li>'rscore': The raw counts.</li>
-<li>'kscore': Word ranks.</li>
 <li>'pscore': The probability scores.</li>
 <li>'zscore': The z-scores</li>
 <li>'pos': The part-of-speech annotations vector associated of a given ngram if annotations are consolidated for each ngram. Consolidation of part-of-speech is when a word with multiple annotations are summed up. For example, the raw data ngram strings <em>one_NUM</em> and <em>one_NOUN</em> will result in <em>one</em> in the vocabulary and [' NUM NOUN'] in the part-of-speech vector. That means the 1gram <em>one</em> is annotated as a number NUM and/or as a noun NOUN.</li>
@@ -13438,7 +13437,7 @@ D = gn.read(n,l,ignore_case=True,restriction=True,annotation=False)</code></pre>
 <pre>Language: chi-sim
 Vocabulary Words: 180
 Years: 109
-DataFrame keys: dict_keys([&#39;rscore&#39;, &#39;kscore&#39;, &#39;pscore&#39;, &#39;zscore&#39;, &#39;pos&#39;])
+DataFrame keys: dict_keys([&#39;rscore&#39;, &#39;pscore&#39;, &#39;zscore&#39;, &#39;pos&#39;])
 </pre>
 </div>
 </div>
@@ -13602,7 +13601,7 @@ DataFrame keys: dict_keys([&#39;rscore&#39;, &#39;kscore&#39;, &#39;pscore&#39;,
 <pre>Language: chi-sim
 Vocabulary Words: 180
 Years: 109
-DataFrame keys: dict_keys([&#39;rscore&#39;, &#39;kscore&#39;, &#39;pscore&#39;, &#39;zscore&#39;, &#39;pos&#39;])
+DataFrame keys: dict_keys([&#39;rscore&#39;, &#39;pscore&#39;, &#39;zscore&#39;, &#39;pos&#39;])
 </pre>
 </div>
 </div>
