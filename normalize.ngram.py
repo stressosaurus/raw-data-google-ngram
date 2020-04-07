@@ -84,7 +84,8 @@ def generate_rscore(l,ignore_case,restriction,annotation,gram_specific=[]):
 			except:
 				rscore[gram] = {}
 				rscore[gram][years_all[i]] = rscore_all[i]
-				
+	del grams_all, rscore_all, years_all
+	
 	# restriction and annotation
 	rscore_pos = {}
 	pos_vector = {}
@@ -124,7 +125,7 @@ def generate_rscore(l,ignore_case,restriction,annotation,gram_specific=[]):
 					except:
 						rscore_pos[gram] = {}
 						rscore_pos[gram][j] = rscore[i][j]
-					
+						
 	rscore_matrix = pd.DataFrame.from_dict(rscore_pos,orient='index').fillna(0).astype('float64')
 	
 	return rscore_matrix, pos_vector
@@ -173,12 +174,7 @@ def generate_matrices(language):
 		rscore, pos_annotation = generate_rscore(language,ignore_case,restriction,annotation,gram_specific=gram_specific)
 		specific_fileName = '-'+specific_fileName
 	
-	pscore = generate_pscore(rscore)
-	try:
-		zscore = generate_zscore(pscore)
-	except:
-		zscore = None
-	
+    # save data frames
 	directory_1 = directory_0+language+'/'
 	try:
 		os.makedirs(directory_1)
@@ -186,13 +182,19 @@ def generate_matrices(language):
 		pass
 	
 	rscore.to_pickle(directory_1+'googlebooks-'+language+'-all-'+n+'gram-20120701.filtered.'+'I'+str(ignore_case)+'R'+str(restriction)+'A'+str(annotation)+'.'+specific_fileName+'.rscore.pkl',compression='gzip')
+	pscore = generate_pscore(rscore)
+	del rscore
 	pscore.to_pickle(directory_1+'googlebooks-'+language+'-all-'+n+'gram-20120701.filtered.'+'I'+str(ignore_case)+'R'+str(restriction)+'A'+str(annotation)+'.'+specific_fileName+'.pscore.pkl',compression='gzip')
 	try:
+		zscore = generate_zscore(pscore)
+		del pscore
 		zscore.to_pickle(directory_1+'googlebooks-'+language+'-all-'+n+'gram-20120701.filtered.'+'I'+str(ignore_case)+'R'+str(restriction)+'A'+str(annotation)+'.'+specific_fileName+'.zscore.pkl',compression='gzip')
+		del zscore
 	except:
-		pass
+		del pscore
 	np.save(directory_1+'googlebooks-'+language+'-all-'+n+'gram-20120701.filtered.'+'I'+str(ignore_case)+'R'+str(restriction)+'A'+str(annotation)+'.'+specific_fileName+'.pos.npy',pos_annotation)
-
+	del pos_annotation
+	
 	print('normalization complete for '+'googlebooks-'+language+'-all-'+n+'gram-20120701.filtered.'+'I'+str(ignore_case)+'R'+str(restriction)+'A'+str(annotation)+'.'+specific_fileName+'.pkl')
-
+	
 generate_matrices(l)
