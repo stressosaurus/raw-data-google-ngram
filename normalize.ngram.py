@@ -166,7 +166,7 @@ def generate_matrices(language):
 			specific_fileName = 'all'
 		gram_specific = []
 		try:
-			file = open(specific_fileName,'r')
+			file = open('1gram-list/'+specific_fileName,'r')
 			for line in file:
 				gram_specific.append(line.replace('\n',''))
 		except FileNotFoundError:
