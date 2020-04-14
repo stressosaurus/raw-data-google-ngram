@@ -39,7 +39,7 @@ def read(n,l,ignore_case=True,restriction=True,annotation=False,specific_fileNam
 				zscore = pd.read_pickle(directory_0+'googlebooks-'+l+'-all-'+n+'gram-20120701.filtered.'+'I'+str(ignore_case)+'R'+str(restriction)+'A'+str(annotation)+'.'+specific_fileName+'.zscore.pkl',compression='gzip')
 			except:
 				zscore = None
-			pos_annotation = np.load(directory_0+'googlebooks-'+l+'-all-'+n+'gram-20120701.filtered.'+'I'+str(ignore_case)+'R'+str(restriction)+'A'+str(annotation)+'.'+specific_fileName+'.pos.npy',allow_pickle=True),item()
+			pos_annotation = np.load(directory_0+'googlebooks-'+l+'-all-'+n+'gram-20120701.filtered.'+'I'+str(ignore_case)+'R'+str(restriction)+'A'+str(annotation)+'.'+specific_fileName+'.pos.npy',allow_pickle=True).item()
 			
 			return {'rscore':rscore,'pscore':pscore,'zscore':zscore,'pos':pos_annotation}
 	
