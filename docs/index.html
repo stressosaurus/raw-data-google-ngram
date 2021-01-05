@@ -13017,45 +13017,6 @@ ul.typeahead-list  > li > a.pull-right {
 .highlight .vm { color: #19177C } /* Name.Variable.Magic */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
     </style>
-<style type="text/css">
-    
-/* Temporary definitions which will become obsolete with Notebook release 5.0 */
-.ansi-black-fg { color: #3E424D; }
-.ansi-black-bg { background-color: #3E424D; }
-.ansi-black-intense-fg { color: #282C36; }
-.ansi-black-intense-bg { background-color: #282C36; }
-.ansi-red-fg { color: #E75C58; }
-.ansi-red-bg { background-color: #E75C58; }
-.ansi-red-intense-fg { color: #B22B31; }
-.ansi-red-intense-bg { background-color: #B22B31; }
-.ansi-green-fg { color: #00A250; }
-.ansi-green-bg { background-color: #00A250; }
-.ansi-green-intense-fg { color: #007427; }
-.ansi-green-intense-bg { background-color: #007427; }
-.ansi-yellow-fg { color: #DDB62B; }
-.ansi-yellow-bg { background-color: #DDB62B; }
-.ansi-yellow-intense-fg { color: #B27D12; }
-.ansi-yellow-intense-bg { background-color: #B27D12; }
-.ansi-blue-fg { color: #208FFB; }
-.ansi-blue-bg { background-color: #208FFB; }
-.ansi-blue-intense-fg { color: #0065CA; }
-.ansi-blue-intense-bg { background-color: #0065CA; }
-.ansi-magenta-fg { color: #D160C4; }
-.ansi-magenta-bg { background-color: #D160C4; }
-.ansi-magenta-intense-fg { color: #A03196; }
-.ansi-magenta-intense-bg { background-color: #A03196; }
-.ansi-cyan-fg { color: #60C6C8; }
-.ansi-cyan-bg { background-color: #60C6C8; }
-.ansi-cyan-intense-fg { color: #258F8F; }
-.ansi-cyan-intense-bg { background-color: #258F8F; }
-.ansi-white-fg { color: #C5C1B4; }
-.ansi-white-bg { background-color: #C5C1B4; }
-.ansi-white-intense-fg { color: #A1A6B2; }
-.ansi-white-intense-bg { background-color: #A1A6B2; }
-
-.ansi-bold { font-weight: bold; }
-
-    </style>
 
 
 <style type="text/css">
@@ -13116,9 +13077,9 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Download,-Filter,-and-Normalize-the-Google-Ngram-Data">Download, Filter, and Normalize the Google Ngram Data<a class="anchor-link" href="#Download,-Filter,-and-Normalize-the-Google-Ngram-Data">&#182;</a></h1><h4 id="Alex-John-Quijano">Alex John Quijano<a class="anchor-link" href="#Alex-John-Quijano">&#182;</a></h4><h3 id="1.-Introduction.">1. Introduction.<a class="anchor-link" href="#1.-Introduction.">&#182;</a></h3><p>The google ngram is a freely accessible database that represents years of human discourse in multiple languages by counting/scanning ngrams (word sequences) in the Google books corpus. With the <a href="https://books.google.com/ngrams">Google Ngram viewer</a>, you can easily track the 1gram occurences of words from 1800-2008 in eight unique languages. These datasets where generated in 2012 (version 2) <span style="color:blue">[Lin et.al. 2012]</span> and in 2009 (version 1). Large portions of the dataset can be downloaded directly from this link, <a href="http://storage.googleapis.com/books/ngrams/books/datasetsv2.html">Google Ngram Datasets V2</a>.</p>
+<h1 id="Download-Raw-Files-of-the-Google-Ngram-Data">Download Raw Files of the Google Ngram Data<a class="anchor-link" href="#Download-Raw-Files-of-the-Google-Ngram-Data">&#182;</a></h1><h4 id="Alex-John-Quijano">Alex John Quijano<a class="anchor-link" href="#Alex-John-Quijano">&#182;</a></h4><h3 id="1.-Introduction.">1. Introduction.<a class="anchor-link" href="#1.-Introduction.">&#182;</a></h3><p>The google ngram is a freely accessible database that represents years of human discourse in multiple languages by counting/scanning ngrams (word sequences) in the Google books corpus. With the <a href="https://books.google.com/ngrams">Google Ngram viewer</a>, you can easily track the 1gram occurences of words from 1800-2008 in eight unique languages. These datasets where generated in 2012 (version 2) <span style="color:blue">[Lin et.al. 2012]</span> and in 2009 (version 1). Large portions of the dataset can be downloaded directly from this link, <a href="http://storage.googleapis.com/books/ngrams/books/datasetsv2.html">Google Ngram Datasets V2</a>.</p>
 <p><strong>GITHUB.</strong> <a href="https://github.com/stressosaurus/raw-data-google-ngram">raw-data-google-ngram</a></p>
-<p><strong>Purpose.</strong> The python scripts on this repository provides an easy way to download, filter, and normalize these large datasets iteratively for researchers interested in data science, mathematical modeling, computational linguistics, historical linguistics, and/or discourse analysis. This kind of dataset have been used to study culture and cultural trends - also known as culturomics <span style="color:blue">[Michel 2010]</span>. Although this data set is impressive, it is not immune to sampling bias. Researchers have shown that the word trend frequencies taken from the google books corpus are dominated by scientific literature <span style="color:blue">[Pechenick 2015]</span>.</p>
+<p><strong>Purpose.</strong> The python scripts on this repository provides an easy way to download, filter, and normalize these large datasets iteratively for researchers interested in data science, mathematical modeling, computational linguistics, historical linguistics, and/or content analysis. This kind of dataset have been used to study culture and cultural trends - also known as culturomics <span style="color:blue">[Michel 2010]</span>. Although this data set is impressive, it is not immune to sampling bias. Researchers have shown that the word trend frequencies taken from the google books corpus are dominated by scientific literature <span style="color:blue">[Pechenick 2015]</span>.</p>
 <p>The provided script named <strong>downloadAndFilter.ngram.sh</strong> allows you to easily download and filter the entire dataset of a chosen language with specific parameters. The python script <strong>normalize.ngram.py</strong> takes in the filtered data and it organizes the data such that the year occurences of each unique ngram is represented as a matrix where each row represents the ngram and column represents years. The <strong>downloadAndFilter.ngram.sh</strong> and <strong>normalize.ngram.py</strong> creates three directories. Each corresponds to raw, filtered, and normalized data but the raw directory only contains the file information that was downloaded and filtered  because these scripts immediately deletes these large files when the normalization is complete.</p>
 <p><strong>Limitations.</strong> The <strong>downloadAndFilter.ngram.sh</strong> downloads ngrams that start with any alphabet a-z. The numerals 0-9 and punctuations are excluded but you can include this by editing (uncomment) line 23 of the script.</p>
 <h3 id="2.-Download-and-Process-Raw-Data.">2. Download and Process Raw Data.<a class="anchor-link" href="#2.-Download-and-Process-Raw-Data.">&#182;</a></h3><p>Below uses <strong>bash scripting</strong> to download and process the Google Ngram data of the Simplified-Chinese (chi-sim) language as a demonstration. See Section 3 for language codes.</p>
@@ -13273,14 +13234,28 @@ googlebooks-chi-sim-all-1gram-20120701 download and filter is finished!
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We follow the normalization steps from Sindi and Dale <span style="color:blue">[Sindi and Dale 2016]</span>. The idea of normalization is to convert the raw frequencies into z-scores.</p>
-<p><strong><em>Step 1:</em></strong> We organized the word counts into a matrix $\mathbf{\widehat{S}}$ where each entry is given by $$\mathbf{\widehat{S}}_{w,t} = freq_{w,t}$$ where $freq_{w,t}$ is the word count of a word $w$ in year $t$.</p>
-<p><strong><em>Step 2:</em></strong> We converted the entries in $\mathbf{\widehat{S}}$ into a proportion matrix $\mathbf{\widehat{P}}$ by operating on the columns of $\mathbf{\widehat{S}}$. Let $V$ be the vocabulary set and $$\widehat{W}_{t} = \sum_{w=1}^{|V|} \mathbf{\widehat{S}}_{w,t}$$ where $\widehat{W}_{t}$ is the sum of the word counts in year $t$. The proportions for each year is then given by $$\mathbf{\widehat{P}}_{w,t} = \left( \frac{1}{\widehat{W}_{t}} \right) \mathbf{\widehat{S}}_{w,t}.$$</p>
-<p><strong><em>Step 3:</em></strong> We converted the matrix $\mathbf{\widehat{P}}$ into a z-score matrix $\mathbf{\widehat{Z}}$ by operating on the rows of $\mathbf{\widehat{P}}$. If $Y$ is the set of years and $p_{w,t}$ be the percent frequency of the word $w$ at time $t$, the mean and variance of the distributions are given by $$\overline{p_{w}} = \left( \frac{1}{|Y|} \right) \sum_{t=0}^{|Y|-1} p_{w,t}$$ and $$\sigma_{p_{w}}^2 = \left( \frac{1}{|Y|} \right) \sum_{t=0}^{|Y|-1} (p_{w,t} - \overline{p_{w}})^2.$$ Then, we convert the distributions to their z-scores. So, the entries in the matrix $\mathbf{\widehat{Z}}$ is given by $$\mathbf{\widehat{Z}}_{w,t} = \frac{(p_{w,t} - \overline{p_{w}})}{\sigma_{p_{w}}}.$$</p>
+<p>We follow the normalization process from previous work of Sindi and Dale 2016 <span style="color:blue">[Sindi and Dale 2016]</span>. Given a set of words $V = \{w_1, w_2, \cdots, w_c\}$ and years $Y = \{t_0, t_1, t_2, \cdots, t_{T-1} \}$, the frequency of a word $w_i$ in a corpus at time $t$, $freq(r_{i,t}) = x_{i,t}$ is the number of occurrences of that word in that corpus. As such, the total number of words, $c$, is fixed as is the number of years $T$ and we thus represent the word frequencies as a matrix: $\mathbf{R} \in \mathbb{R}^{c \times T}$ where</p>
+$$\mathbf{R}_{i,t} = freq(r_{i,t}) = x_{i,t}, \hspace{15px} x_{i,t} \ge 1$$<p>In our normalization process, we first convert the frequency matrix $\mathbf{R}$ into a proportion matrix $\mathbf{P}$ by normalizing the columns of $\mathbf{R}$ which normalizes word frequencies by year:</p>
+$$\mathbf{P}_{i,t} = p_{i,t}, \hspace{15px} p_{i,t} = \frac{x_{i,t}}{\sum_{i=1}^{c} x_{i,t}}.$$<p>Finally, we normalize the proportions for each unigram by converting the rows of $\mathbf{P}$ into z-scores:</p>
+$$\mathbf{Z}_{i,t} = z_{i,t}, \hspace{15px} z_{i,t} = \frac{p_{i,t} - \overline{p_{i}}}{\sigma_{p_{i}}}$$<p>where $\overline{p_{i}}$ is the mean and $(\sigma_{p_{i}})^2$ is the variance of the $i$th row of $\mathbf{P}$;</p>
+$$\overline{p_{i}} = \frac{1}{T} \sum_{t=0}^{T-1} p_{i,t}$$<p>and</p>
+$$(\sigma_{p_{i}})^2 = \frac{1}{T-1} \sum_{t=0}^{T-1} (p_i - \overline{p_{i}})^2.$$<p>The matrix $\mathbf{P}$ has the following properties.</p>
+<ol>
+<li>$\sum_{i=1}^c p_{i,t} = 1$</li>
+<li>$\sum_{i=1}^c \overline{p_{i}} = 1$</li>
+<li>$\sum_{i=1}^c \sum_{j=1}^c \overline{p_{i}}\overline{p_{j}} = 1$</li>
+<li>$\sum_{i=1}^c \sum_{t=0}^{T-1} p_{i,t} = \sum_{t=0}^{T-1} \sum_{i=1}^c p_{i,t} = T$</li>
+<li>$\sum_{t=0}^{T-1} \frac{1}{c} \sum_{i=1}^{c} p_{i,t} = \frac{T}{c}$</li>
+</ol>
+<p>The matrix $\mathbf{Z}$ has the following properties.</p>
+<ol>
+<li>$\frac{1}{T} \sum_{t=0}^{T-1} z_{i,t} = 0$</li>
+<li>$\frac{1}{T-1} \sum_{t=0}^{T-1} \left(z_{i,t} - 0 \right)^2 = 1$</li>
+</ol>
 <h4 id="2.3.-Downloading-for-$n-&gt;-1$.">2.3. Downloading for $n &gt; 1$.<a class="anchor-link" href="#2.3.-Downloading-for-$n-&gt;-1$.">&#182;</a></h4><p>Downloading ngrams for $n &gt; 1$ requires large memory (i.e &gt; 1 terabyte). To process ngrams with $n &gt; 1$, set the optional parameter, <strong>specific_fileName='1gram-list-special-chi-sim'</strong>. This option will tell the machine to search for the file named '1gram-list-special-chi-sim' in the '1gram-list' directory that contains a list of 1grams. The resulting ngrams will contain these 1grams. For example 1gram '特' will result in 2grams '一 特' and '特 一', etc. Setting this paramter to <strong>specific_fileName='all'</strong> while $n &gt; 1$ will process all ngrams.</p>
 <p>You can create your own list of 1grams and save it in the '1gram-list' directory. You can also try the included stop words lists (ex. '1gram-list-stop-word-chi-sim').</p>
 <h3 id="3.-Loading-the-Processed-Data-using-the-googleNgram-Python-module.">3. Loading the Processed Data using the googleNgram Python module.<a class="anchor-link" href="#3.-Loading-the-Processed-Data-using-the-googleNgram-Python-module.">&#182;</a></h3>
-<pre><code>import googleNgrams as gn
+<pre><code>import googleNgram as gn
 n = '1'
 l = 'chi-sim'
 D = gn.read(n,l,ignore_case=True,restriction=True,annotation=False)</code></pre>

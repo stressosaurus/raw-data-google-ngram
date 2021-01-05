@@ -138,10 +138,15 @@ def generate_pscore(rscore_matrix):
 # generate zscore matrix
 def generate_zscore(pscore_matrix):
 	
-	a = pscore_matrix.T - np.mean(pscore_matrix.T,axis=0)
-	b = np.std(pscore_matrix.T,axis=0)
+	means = np.mean(pscore_matrix,axis=1)
+	stds = np.std(pscore_matrix,axis=1)
+	out = pd.DataFrame(np.zeros(pscore_matrix.shape),index=pscore_matrix.index,columns=pscore_matrix.columns)
+	for i in out.columns:
+		out[i] = pscore_matrix[i] - means
+	for j in out.columns:
+		out[j] = np.divide(out[j],stds)
 	
-	return np.divide(a,b).T
+	return out
 	
 # create directory
 directory_0 = n+'gram-normalized/'
