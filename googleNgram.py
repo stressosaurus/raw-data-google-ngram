@@ -54,31 +54,3 @@ def read(n,l,ignore_case=True,restriction=True,annotation=False,specific_fileNam
 				sys.exit()
 			except SystemExit:
 				sys.exit
-
-# get word set from a file
-def get_subset(DataFrame,file_path):
-
-	# defined stop words
-	ngrams = []
-	try:
-		file = open(file_path,encoding='utf-8')
-	except FileNotFoundError:
-		print('The file')
-		
-	for f in file:
-		ngrams.append(f.replace('\n',''))
-		
-	df_ngrams = DataFrame.index
-	df_ngrams_chosen = []
-	for i in df_ngrams:
-		i_split = i.split(' ')
-		for j in i_split:
-			if j in ngrams:
-				df_ngrams_chosen.append(i)
-				
-	out = DataFrame.reindex(np.array(df_ngrams_chosen)).dropna(axis='index')
-	
-	print('Number of input words: '+str(len(ngrams)))
-	print('Number of valid words: '+str(out.shape[0]))
-		
-	return out

@@ -1,5 +1,4 @@
 a
-a.
 able
 about
 above
@@ -61,7 +60,6 @@ available
 away
 awfully
 b
-b.
 back
 be
 became
@@ -110,7 +108,6 @@ contains
 could
 couldnt
 d
-d.
 date
 did
 didn't
@@ -126,7 +123,6 @@ downwards
 due
 during
 e
-e.
 each
 ed
 edu
@@ -154,7 +150,6 @@ everywhere
 ex
 except
 f
-f.
 far
 few
 ff
@@ -175,7 +170,6 @@ from
 further
 furthermore
 g
-g.
 gave
 get
 gets
@@ -190,7 +184,6 @@ gone
 got
 gotten
 h
-h.
 had
 happens
 hardly
@@ -224,7 +217,6 @@ howbeit
 however
 hundred
 i
-i.
 id
 ie
 if
@@ -251,12 +243,10 @@ it'll
 its
 itself
 i've
-j.
+j
 just
 k
-k.
-keep
-keeps
+keep	keeps
 kept
 kg
 km
@@ -264,7 +254,6 @@ know
 known
 knows
 l
-l.
 largely
 last
 lately
@@ -287,7 +276,6 @@ looking
 looks
 ltd
 m
-m.
 made
 mainly
 make
@@ -318,7 +306,6 @@ must
 my
 myself
 n
-n.
 na
 name
 namely
@@ -352,7 +339,6 @@ nothing
 now
 nowhere
 o
-o.
 obtain
 obtained
 obviously
@@ -386,7 +372,6 @@ overall
 owing
 own
 p
-p.
 page
 pages
 part
@@ -413,13 +398,11 @@ proud
 provides
 put
 q
-q.
 que
 quickly
 quite
 qv
 r
-r.
 ran
 rather
 rd
@@ -443,7 +426,6 @@ results
 right
 run
 s
-s.
 said
 same
 saw
@@ -580,7 +562,6 @@ ts
 twice
 two
 u
-w.
 un
 under
 unfortunately
@@ -602,7 +583,6 @@ uses
 using
 usually
 v
-v.
 value
 various
 've
@@ -612,9 +592,7 @@ viz
 vol
 vols
 vs
-vs.
 w
-w.
 want
 wants
 was
@@ -671,9 +649,7 @@ would
 wouldnt
 www
 x
-x.
 y
-y.
 yes
 yet
 you
@@ -686,37 +662,4 @@ yourself
 yourselves
 you've
 z
-z.
 zero
-.
-,
-<
->
-?
-/
-:
-;
-"
-'
-~
-`
-!
-@
-#
-$
-%
-^
-&
-*
-(
-)
-_
--
-+
-=
-{
-}
-[
-]
-\
-|
