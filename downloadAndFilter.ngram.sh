@@ -69,7 +69,7 @@ function df {
 				rm ${n}gram-filtered/${language}/googlebooks-${language}-all-${n}gram-20120701-${alpha}${beta}.filtered0
 				rm ${n}gram-filtered/${language}/googlebooks-${language}-all-${n}gram-20120701-${alpha}${beta}.filtered1
 				rm ${n}gram-filtered/${language}/googlebooks-${language}-all-${n}gram-20120701-${alpha}${beta}.filtered2
-			elif [ ${n} -eq 2 ]
+			elif [ ${n} -ge 2 ]
 			then
 				# 1st filter (year lower bound)
 				awk -v var="$yearLowerBound" '$3 >= var' ${n}gram-raw/${language}/googlebooks-${language}-all-${n}gram-20120701-${alpha}${beta} > ${n}gram-filtered/${language}/googlebooks-${language}-all-${n}gram-20120701-${alpha}${beta}.filtered0
@@ -104,7 +104,7 @@ then
 	do
 		df ${i} ""
 	done
-elif [ ${n} -eq 2 ]
+elif [ ${n} -ge 2 ]
 then
 	# Extension (if n >= 2)
 	g[26]="_"
